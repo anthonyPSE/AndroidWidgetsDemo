@@ -1,7 +1,15 @@
 package com.anthonypse.androidutils;
 
+import android.app.WallpaperManager;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Vibrator;
+import android.provider.MediaStore;
+
+import java.io.IOException;
+
+import static android.content.Context.VIBRATOR_SERVICE;
 
 public class DeviceManager {
     private Context mContext;
@@ -18,17 +26,58 @@ public class DeviceManager {
 
     }
     public boolean resetHomeScreenWallpaper(){
-        return false;
+        WallpaperManager manager = WallpaperManager.getInstance(mContext);
+
+        try {
+            manager.clear();
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
+
+    /**
+     *
+     * @param uri
+     * @return
+     */
     public boolean setHomeScreenWallpaper(Uri uri){
-        return false;
+        WallpaperManager manager = WallpaperManager.getInstance(mContext);
+
+        try {
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(mContext.getContentResolver(), uri);
+            manager.setBitmap(bitmap);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean setSystemWallpaper(int resourceId){
+        WallpaperManager manager = WallpaperManager.getInstance(mContext);
+
+        try {
+            manager.setResource(resourceId);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public boolean isWallpaperChangeAllowed(){
         return false;
     }
 
-    public void vibrateDevice(long milliseconds){
+    public void vibrateDevice(long milliseconds) throws Exception {
+        Vibrator vibrator = (Vibrator) mContext.getSystemService(VIBRATOR_SERVICE);
 
+        if (vibrator == null) throw new Exception("Vibrator could not be retrieved.");
+
+        if (!vibrator.hasVibrator()) throw new Exception("No vibration motor detected");
+
+        vibrator.vibrate(milliseconds);
     }
 }
