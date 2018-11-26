@@ -13,9 +13,10 @@ import static android.content.Context.VIBRATOR_SERVICE;
 
 public class DeviceManager {
     private Context mContext;
-
+    InfoUtil mInfo;
     public DeviceManager(Context context) {
         mContext = context;
+        mInfo = new InfoUtil(mContext);
     }
 
     public int setLockScreenWallpaper(String filePath){
@@ -31,9 +32,12 @@ public class DeviceManager {
         try {
             manager.clear();
             return true;
-        } catch (IOException e) {
+        } catch (NullPointerException e) {
             e.printStackTrace();
             return false;
+        } catch (IOException | SecurityException e) {
+            e.printStackTrace();
+            return true;
         }
     }
 

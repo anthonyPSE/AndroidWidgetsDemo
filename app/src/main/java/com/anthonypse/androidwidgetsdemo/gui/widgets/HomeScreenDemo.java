@@ -26,17 +26,6 @@ public class HomeScreenDemo extends LockScreenDemo {
         mTextViewDescription.setText("Set Home Screen Wallpaper");
     }
 
-    /**
-     * Either enables or disables all the buttons on this widget.
-     *
-     * @param enable the enabled state for the buttons.
-     */
-    private void enableControllerButtons(boolean enable) {
-        mButtonReset.setEnabled(enable);
-        mButtonSave.setEnabled(enable);
-        mOpenFileDialog.setEnabled(enable);
-        mImgPreview.setEnabled(enable);
-    }
 
     /**
      * Sets or resets the lock screen depending on the selected option.
@@ -56,6 +45,7 @@ public class HomeScreenDemo extends LockScreenDemo {
 
     @Override
     protected void reset() {
+
         if (mDeviceManager.resetHomeScreenWallpaper()) {
             mInfo.showToast("System wallpaper reset successfully");
         } else {
