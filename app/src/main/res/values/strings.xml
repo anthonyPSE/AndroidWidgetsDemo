@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidWidgetsDemo</string>
+    <string name="intro_text">Write an intro here</string>
 </resources>
