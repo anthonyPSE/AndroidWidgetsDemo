@@ -33,7 +33,7 @@ public class IntroDemo extends DemoWidget {
     protected void init() {
         Log.i(TAG, "init");
         super.init();
-        mTextViewDescription.setText("Welcome to the MCH SDK Demo!");
+        mTextViewDescription.setText("Welcome to the Android Widgets Demo!");
 
     }
 }

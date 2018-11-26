@@ -49,6 +49,11 @@ public class RingtoneSelectionDemo extends DemoWidget {
     }
 
     @Override
+    protected void init(){
+        super.init();
+        mTextViewDescription.setText("Set your ringtone here");
+    }
+    @Override
     protected void bind(View v) {
         super.bind(v);
         View controls = v.findViewById(R.id.control_panel);

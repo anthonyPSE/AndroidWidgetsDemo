@@ -1,6 +1,8 @@
 package com.anthonypse.androidwidgetsdemo;
 
 
+import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -28,11 +30,13 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private DrawerLayout mDrawerLayout;
+    private InfoUtil mInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mInfo = new InfoUtil(this, getClass().getSimpleName());
         bind();
         initNavDrawer();
 
@@ -79,8 +83,17 @@ public class MainActivity extends AppCompatActivity {
             navHeader.findViewById(R.id.textUrl).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.igov.com/"));
-                    startActivity(browserIntent);
+                    try{
+                        Intent intent = new Intent(Intent.ACTION_SEND);
+                        intent.setType("text/html");
+                        intent.putExtra(Intent.EXTRA_EMAIL, "AnthonyPSE@Gmail.com");
+                        startActivity(Intent.createChooser(intent, "Send Email"));
+                    } catch (ActivityNotFoundException e){
+                        mInfo.logError("Couldn't Launch email");
+                    } catch (Exception e){
+                        mInfo.logError("Unhandled exception when trying to open email intent");
+                    }
+
                 }
             });
         }
