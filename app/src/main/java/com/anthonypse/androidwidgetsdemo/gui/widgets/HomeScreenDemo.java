@@ -22,30 +22,16 @@ public class HomeScreenDemo extends LockScreenDemo {
     @Override
     protected void init() {
         super.init();
-        if(mDeviceManager == null ){
-            return;
-        }
         mDeviceManager = new DeviceManager(getContext());
         mTextViewDescription.setText("Set Home Screen Wallpaper");
-
-        try{
-            if(!mDeviceManager.isWallpaperChangeAllowed()){
-                mTextViewDescription.setText("Your device settings currently prohibits changing wallpaper.  Please contact your administrator");
-                enableControllerButtons(false);
-            }
-                infoLog("looks like we managed to gete inside");
-        }catch (SecurityException e){
-            e.printStackTrace();
-            mTextViewDescription.setText("Unable to determine if setting wallpaper is allowed on this device.  Some features may be broken or disabled.");
-        }
-
     }
 
     /**
      * Either enables or disables all the buttons on this widget.
+     *
      * @param enable the enabled state for the buttons.
      */
-    private void enableControllerButtons(boolean enable){
+    private void enableControllerButtons(boolean enable) {
         mButtonReset.setEnabled(enable);
         mButtonSave.setEnabled(enable);
         mOpenFileDialog.setEnabled(enable);
@@ -63,7 +49,7 @@ public class HomeScreenDemo extends LockScreenDemo {
         }
 
         boolean result = mDeviceManager.setHomeScreenWallpaper(mWallpaperUri);
-        if(result) mInfo.showToast("System wallpaper set successfully");
+        if (result) mInfo.showToast("System wallpaper set successfully");
         else mInfo.showToast("System wallpaper not set");
 
     }

@@ -2,6 +2,7 @@ package com.anthonypse.androidwidgetsdemo.gui.pages;
 
 import com.anthonypse.androidwidgetsdemo.gui.BaseDemoPage;
 import com.anthonypse.androidwidgetsdemo.gui.DemoWidget;
+import com.anthonypse.androidwidgetsdemo.gui.widgets.HomeScreenDemo;
 import com.anthonypse.androidwidgetsdemo.gui.widgets.LockScreenDemo;
 import com.anthonypse.androidwidgetsdemo.gui.widgets.RingtoneSelectionDemo;
 
@@ -24,6 +25,7 @@ public class DeviceSettings extends BaseDemoPage {
         List<DemoWidget> returnMe = new ArrayList<>();
         //Add your demo widgets here
         returnMe.add(new LockScreenDemo());
+        returnMe.add(new HomeScreenDemo());
         returnMe.add(new RingtoneSelectionDemo());
         return returnMe;
     }
