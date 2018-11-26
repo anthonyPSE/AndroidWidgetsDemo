@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.anthonypse.androidutils.DeviceManager;
-import com.anthonypse.androidwidgetsdemo.FileSelectionUtils;
+import com.anthonypse.androidutils.FileSelectionUtils;
 import com.anthonypse.androidwidgetsdemo.MimeContentType;
 import com.anthonypse.androidwidgetsdemo.R;
 import com.anthonypse.androidwidgetsdemo.RequestCode;

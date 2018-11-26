@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.anthonypse.androidutils.InfoUtil;
 import com.anthonypse.androidwidgetsdemo.gui.pages.DeviceSettings;
 import com.anthonypse.androidwidgetsdemo.gui.pages.InternalHardware;
 import com.anthonypse.androidwidgetsdemo.gui.pages.IntroPage;

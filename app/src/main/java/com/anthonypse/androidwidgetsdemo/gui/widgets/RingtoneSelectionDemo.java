@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.anthonypse.androidwidgetsdemo.Constants;
-import com.anthonypse.androidwidgetsdemo.FileSelectionUtils;
+import com.anthonypse.androidutils.FileSelectionUtils;
 import com.anthonypse.androidwidgetsdemo.MimeContentType;
 import com.anthonypse.androidwidgetsdemo.R;
 import com.anthonypse.androidwidgetsdemo.RequestCode;

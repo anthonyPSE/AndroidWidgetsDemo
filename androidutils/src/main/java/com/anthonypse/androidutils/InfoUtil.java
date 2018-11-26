@@ -1,4 +1,4 @@
-package com.anthonypse.androidwidgetsdemo;
+package com.anthonypse.androidutils;
 
 import android.content.Context;
 import android.support.v7.app.AlertDialog;

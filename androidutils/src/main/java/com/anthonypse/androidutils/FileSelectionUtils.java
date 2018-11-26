@@ -1,4 +1,4 @@
-package com.anthonypse.androidwidgetsdemo;
+package com.anthonypse.androidutils;
 
 import android.app.Activity;
 import android.content.Context;

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.anthonypse.androidwidgetsdemo.InfoUtil;
+import com.anthonypse.androidutils.InfoUtil;
 import com.anthonypse.androidwidgetsdemo.R;
 
 import java.util.Set;
