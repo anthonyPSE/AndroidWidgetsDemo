@@ -47,15 +47,30 @@ public class FileSelectionUtils {
         return result;
     }
 
-    public static void openFileDialog(Fragment parentFragment, @NonNull String dialogMsg, @NonNull Uri folder, @NonNull String fileType, int requestCode) {
+    public static void openFileDialog(Fragment parentFragment, @NonNull String dialogMsg, @NonNull Uri folder, @NonNull MimeContentType fileType, int requestCode) {
         Log.i(TAG, "openFileDialog");
 
-        if (!fileType.isEmpty()) {
             Intent intent = new Intent()
                     .setAction(Intent.ACTION_GET_CONTENT);
-            intent = intent.setDataAndType(folder,fileType);
+            intent = intent.setDataAndType(folder,fileType.getValue());
 
             parentFragment.startActivityForResult(Intent.createChooser(intent, dialogMsg), requestCode);
+    }
+
+    public enum MimeContentType {
+        AUDIO("audio/*"),
+        AUDIO_MP3("audio/mpeg"),
+        IMG("image/*"),
+        IMG_PNG("image/png");
+
+        private String value;
+
+        private MimeContentType(String value) {
+            this.value = value;
+        }
+
+        public String getValue(){
+            return value;
         }
     }
 }

@@ -14,7 +14,6 @@ import android.widget.ImageView;
 
 import com.anthonypse.androidutils.DeviceManager;
 import com.anthonypse.androidutils.FileSelectionUtils;
-import com.anthonypse.androidwidgetsdemo.MimeContentType;
 import com.anthonypse.androidwidgetsdemo.R;
 import com.anthonypse.androidwidgetsdemo.RequestCode;
 import com.anthonypse.androidwidgetsdemo.database.PspecTable;
@@ -23,6 +22,7 @@ import com.anthonypse.androidwidgetsdemo.gui.DemoWidget;
 import java.security.AccessControlException;
 
 import static android.app.Activity.RESULT_OK;
+import static com.anthonypse.androidutils.FileSelectionUtils.MimeContentType.IMG;
 
 /**
  * Created by anthonypse@gmail.com
@@ -89,14 +89,14 @@ public class LockScreenDemo extends DemoWidget {
             mOpenFileDialog.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    FileSelectionUtils.openFileDialog(LockScreenDemo.this, "Choose Wallpaper", Uri.parse(WALLPAPER_DIRECTORY), MimeContentType.IMG, RequestCode.GET_WALLPAPER);
+                    FileSelectionUtils.openFileDialog(LockScreenDemo.this, "Choose Wallpaper", Uri.parse(WALLPAPER_DIRECTORY), IMG, RequestCode.GET_WALLPAPER);
                 }
             });
 
             mImgPreview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    FileSelectionUtils.openFileDialog(LockScreenDemo.this, "Choose Wallpaper", Uri.parse(WALLPAPER_DIRECTORY), MimeContentType.IMG, RequestCode.GET_WALLPAPER);
+                    FileSelectionUtils.openFileDialog(LockScreenDemo.this, "Choose Wallpaper", Uri.parse(WALLPAPER_DIRECTORY), IMG, RequestCode.GET_WALLPAPER);
                 }
             });
 
